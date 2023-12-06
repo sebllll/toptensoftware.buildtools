@@ -22,13 +22,7 @@
     <Compile Include="../version.cs" Link="version.cs" />
   </ItemGroup>
 
-  <Target Name="Code Sign" AfterTargets="Build" Condition="$(TtsCodeSign) And '$(TargetFileName)'!=''">
-    <Exec Command="ttssign $(TargetDir)$(TargetFileName)" />
-  </Target>
 
-  <Target Name="InheritDoc" AfterTargets="PostBuildEvent" Condition="$(GenerateDocumentationFile) And $(TtsInheritDoc)">
-    <Exec Command="inheritdoc -b $(OutputPath) -f $(AssemblyName).xml --overwrite" />
-  </Target>
 
   <ItemGroup>
       <None Include="../buildtools/nuget-icon.png" Pack="true" PackagePath=""/>
